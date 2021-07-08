@@ -31,7 +31,7 @@ namespace Commander.Controllers
         }
 
         // GET This is for the route which expects an "id" eg: api/commands/1
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetCommandById")]
         public ActionResult <CommandReadDto> GetCommandById(int id)
         {
             var commandItem = _repo.GetCommandById(id);
@@ -49,7 +49,11 @@ namespace Commander.Controllers
             var commandModel = _mapper.Map<Command>(commandCreateDto);
             _repo.CreateCommand(commandModel);
             _repo.Save();
-            return Ok(commandModel);
+
+            var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
+
+            return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, commandReadDto);
+            // return Ok(commandReadDto);
         }
 
     }
