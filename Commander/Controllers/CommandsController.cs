@@ -42,7 +42,7 @@ namespace Commander.Controllers
             return NotFound();
         }
 
-        // POST api/command
+        // POST api/commands
         [HttpPost]
         public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
         {
@@ -56,7 +56,7 @@ namespace Commander.Controllers
             // return Ok(commandReadDto);
         }
 
-        // UPDATE api/command/{id}
+        // UPDATE api/commands/{id}
         [HttpPut("{id}")]
         public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto)
         {
@@ -80,6 +80,21 @@ namespace Commander.Controllers
             return Ok(_mapper.Map<CommandReadDto>(updatedResult));
         }
 
+        // DELETE api/commands/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
 
+            var commandModelFromRepo = _repo.GetCommandById(id);
+            if(commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _repo.DeleteCommand(commandModelFromRepo);
+            _repo.Save();
+
+            return Ok("Deleted Successfully object with id = " + commandModelFromRepo.Id);
+        }
     }
 }

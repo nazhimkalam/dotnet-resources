@@ -39,7 +39,17 @@ namespace Commander.Data
 
         public void UpdateCommand(Command cmd)
         {
-            // Nothing here yet
+            // Nothing here update happens automatically
+        }
+
+         public void DeleteCommand(Command cmd)
+        {
+            if(cmd == null)
+            {
+                throw new ArgumentNullException(nameof(cmd));
+            }
+
+            _context.Commands.Remove(cmd);
         }
     }
 }

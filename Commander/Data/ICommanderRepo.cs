@@ -19,5 +19,8 @@ namespace Commander.Data
 
         // Updating a command
         void UpdateCommand(Command cmd);
+
+        // Delete a command
+        void DeleteCommand(Command cmd);
     }
 }
