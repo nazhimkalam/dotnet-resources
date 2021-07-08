@@ -22,7 +22,7 @@ namespace Commander.Controllers
             _mapper = mapper;
         }
 
-        // This is to get all eg: api/commands
+        // GET This is to get all eg: api/commands
         [HttpGet]
         public ActionResult <IEnumerable<Command>> GetAllCommands()
         {
@@ -30,7 +30,7 @@ namespace Commander.Controllers
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(allCommandItems));
         }
 
-        // This is for the route which expects an "id" eg: api/commands/1
+        // GET This is for the route which expects an "id" eg: api/commands/1
         [HttpGet("{id}")]
         public ActionResult <CommandReadDto> GetCommandById(int id)
         {
@@ -40,6 +40,16 @@ namespace Commander.Controllers
                 return Ok(_mapper.Map<CommandReadDto>(commandItem));
             }
             return NotFound();
+        }
+
+        // POST api/command
+        [HttpPost]
+        public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
+        {
+            var commandModel = _mapper.Map<Command>(commandCreateDto);
+            _repo.CreateCommand(commandModel);
+            _repo.Save();
+            return Ok(commandModel);
         }
 
     }

@@ -10,5 +10,10 @@ namespace Commander.Data
 
         // returns a single Command
         Command GetCommandById(int id);
+
+        // Creating a command 
+        void CreateCommand(Command cmd);
+
+        bool Save();
     }
 }
