@@ -56,5 +56,30 @@ namespace Commander.Controllers
             // return Ok(commandReadDto);
         }
 
+        // UPDATE api/command/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto)
+        {
+            var commandModelFromRepo = _repo.GetCommandById(id);
+            if(commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            // This also performs the updates in the context database
+            _mapper.Map(commandUpdateDto, commandModelFromRepo); 
+
+            // Good practice is to update by using the Update command but its not necessary to
+            _repo.UpdateCommand(commandModelFromRepo);
+
+            // save the Changes
+            _repo.Save();
+
+            // returning the updated response to the client 
+            var updatedResult =_repo.GetCommandById(id);
+            return Ok(_mapper.Map<CommandReadDto>(updatedResult));
+        }
+
+
     }
 }

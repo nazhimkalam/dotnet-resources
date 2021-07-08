@@ -14,6 +14,10 @@ namespace Commander.Data
         // Creating a command 
         void CreateCommand(Command cmd);
 
+        // for saving the data in the database
         bool Save();
+
+        // Updating a command
+        void UpdateCommand(Command cmd);
     }
 }
