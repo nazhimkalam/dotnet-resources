@@ -5470,28 +5470,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nazhim\\.nuget\\packages\\": {}
+    "C:\\Users\\Nazhim\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nazhim\\Desktop\\dotnet-learning\\Commander\\Commander.csproj",
+      "projectUniqueName": "C:\\Users\\Nazhim\\OneDrive - 99x\\Learning Resources during Internship\\dotnet-learning\\Commander\\Commander.csproj",
       "projectName": "Commander",
-      "projectPath": "C:\\Users\\Nazhim\\Desktop\\dotnet-learning\\Commander\\Commander.csproj",
+      "projectPath": "C:\\Users\\Nazhim\\OneDrive - 99x\\Learning Resources during Internship\\dotnet-learning\\Commander\\Commander.csproj",
       "packagesPath": "C:\\Users\\Nazhim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nazhim\\Desktop\\dotnet-learning\\Commander\\obj\\",
+      "outputPath": "C:\\Users\\Nazhim\\OneDrive - 99x\\Learning Resources during Internship\\dotnet-learning\\Commander\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Nazhim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Nazhim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5503,6 +5511,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
@@ -5545,7 +5554,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
